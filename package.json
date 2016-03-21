@@ -1,0 +1,30 @@
+{
+  "name": "react_client_starter_app",
+  "version": "0.0.1",
+  "description": "Client only React project.",
+  "engines": {
+    "node": "4.2.1"
+  },
+  "scripts": {
+    "postinstall": "cd ./client && npm install",
+    "build": "cd ./client && gulp build --release",
+    "release": "cd ./client && gulp build --release && cd .. && s3_website push",
+    "hot": "cd ./client && gulp build && node webpack.hot.js",
+    "test": "cd ./client && node_modules/karma/bin/karma start",
+    "coveralls": "cat coverage/lcov.info | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atomicjolt/react_client_starter_app"
+  },
+  "keywords": [
+    "react",
+    "Rails",
+    "OAuth"
+  ],
+  "author": "atomicjolt",
+  "license": "MIT",
+  "homepage": "https://github.com/atomicjolt/react_client_starter_app",
+  "dependencies": {
+  }
+}
