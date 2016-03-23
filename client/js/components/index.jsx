@@ -8,7 +8,7 @@ export default class Index extends React.Component {
 
     return (
       <div>
-        <h1>React Firebase Starter App</h1>
+        <h1>DevPixel is Rad</h1>
         {this.props.children}
         <div className="footer">
           <p>
