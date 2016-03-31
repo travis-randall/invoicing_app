@@ -13,122 +13,65 @@ export default class Index extends React.Component {
          <div className="mdl-layout--large-screen-only mdl-layout__header-row">
          </div>
          <div className="mdl-layout--large-screen-only mdl-layout__header-row">
-           <h3>Name &amp; Title</h3>
+           <h3>MORTYZ &nbsp;</h3>
+           <h5>Invoicing System</h5>
          </div>
          <div className="mdl-layout--large-screen-only mdl-layout__header-row">
          </div>
          <div className="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-           <a href="#overview" className="mdl-layout__tab is-active">Overview</a>
-           <a href="#features" className="mdl-layout__tab">Features</a>
-           <a href="#features" className="mdl-layout__tab">Details</a>
-           <a href="#features" className="mdl-layout__tab">Technology</a>
-           <a href="#features" className="mdl-layout__tab">FAQ</a>
+           <a href="#current-invoices" className="mdl-layout__tab is-active">Current Invoices</a>
+           <a href="#archived-invoices" className="mdl-layout__tab">Archived Invoices</a>
            <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
              <i className="material-icons" role="presentation">add</i>
-             <span className="visuallyhidden">Add</span>
+             <a href="#add-invoice"></a>
            </button>
          </div>
         </header>
         <main className="mdl-layout__content">
-         <div className="mdl-layout__tab-panel is-active" id="overview">
-           <section className="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-             <header className="section__play-btn mdl-cell mdl-cell--3-col-desktop mdl-cell--2-col-tablet mdl-cell--4-col-phone mdl-color--teal-100 mdl-color-text--white">
-               <i className="material-icons">play_circle_filled</i>
-             </header>
-             <div className="mdl-card mdl-cell mdl-cell--9-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
-               <div className="mdl-card__supporting-text">
-                 <h4>Features</h4>
-                 Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse.
-               </div>
-               <div className="mdl-card__actions">
-                 <a href="#" className="mdl-button">Read our features</a>
-               </div>
-             </div>
-             <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
-               <i className="material-icons">more_vert</i>
-             </button>
-             <ul className="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn1">
-               <li className="mdl-menu__item">Lorem</li>
-               <li className="mdl-menu__item" disabled>Ipsum</li>
-               <li className="mdl-menu__item">Dolor</li>
-             </ul>
-           </section>
-           <section className="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-             <div className="mdl-card mdl-cell mdl-cell--12-col">
-               <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                 <h4 className="mdl-cell mdl-cell--12-col">Details</h4>
-                 <div className="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                   <div className="section__circle-container__circle mdl-color--primary"></div>
-                 </div>
-                 <div className="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                   <h5>Lorem ipsum dolor sit amet</h5>
-                   Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
-                 </div>
-                 <div className="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                   <div className="section__circle-container__circle mdl-color--primary"></div>
-                 </div>
-                 <div className="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                   <h5>Lorem ipsum dolor sit amet</h5>
-                   Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
-                 </div>
-                 <div className="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                   <div className="section__circle-container__circle mdl-color--primary"></div>
-                 </div>
-                 <div className="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                   <h5>Lorem ipsum dolor sit amet</h5>
-                   Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Duis nulla tempor do aute et eiusmod velit exercitation nostrud quis <a href="#">proident minim</a>.
-                 </div>
-               </div>
-               <div className="mdl-card__actions">
-                 <a href="#" className="mdl-button">Read our features</a>
-               </div>
-             </div>
-             <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
-               <i className="material-icons">more_vert</i>
-             </button>
-             <ul className="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
-               <li className="mdl-menu__item">Lorem</li>
-               <li className="mdl-menu__item" disabled>Ipsum</li>
-               <li className="mdl-menu__item">Dolor</li>
-             </ul>
-           </section>
-           <section className="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-             <div className="mdl-card mdl-cell mdl-cell--12-col">
-               <div className="mdl-card__supporting-text">
-                 <h4>Technology</h4>
-                 Dolore ex deserunt aute fugiat aute nulla ea sunt aliqua nisi cupidatat eu. Nostrud in laboris labore nisi amet do dolor eu fugiat consectetur elit cillum esse. Pariatur occaecat nisi laboris tempor laboris eiusmod qui id Lorem esse commodo in. Exercitation aute dolore deserunt culpa consequat elit labore incididunt elit anim.
-               </div>
-               <div className="mdl-card__actions">
-                 <a href="#" className="mdl-button">Read our features</a>
-               </div>
-             </div>
-             <button className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn3">
-               <i className="material-icons">more_vert</i>
-             </button>
-             <ul className="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn3">
-               <li className="mdl-menu__item">Lorem</li>
-               <li className="mdl-menu__item" disabled>Ipsum</li>
-               <li className="mdl-menu__item">Dolor</li>
-             </ul>
-           </section>
-           <section className="section--footer mdl-color--white mdl-grid">
-             <div className="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-               <div className="section__circle-container__circle mdl-color--accent section__circle--big"></div>
-             </div>
-             <div className="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-               <h5>Lorem ipsum dolor sit amet</h5>
-               Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
-             </div>
-             <div className="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-               <div className="section__circle-container__circle mdl-color--accent section__circle--big"></div>
-             </div>
-             <div className="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-               <h5>Lorem ipsum dolor sit amet</h5>
-               Qui sint ut et qui nisi cupidatat. Reprehenderit nostrud proident officia exercitation anim et pariatur ex.
-             </div>
-           </section>
+         <div className="mdl-layout__tab-panel is-active" id="current-invoices">
+         <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--4-col">
+             <h4>Current Invoices</h4>
+             <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+              <thead>
+                <tr>
+                  <th className="mdl-data-table__cell--non-numeric">Invoice</th>
+                  <th className="mdl-data-table__cell--non-numeric">Company</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="mdl-data-table__cell--non-numeric">ACME-Corp-00051113</td>
+                  <td className="mdl-data-table__cell--non-numeric">ACME Corporation</td>
+                  <td>$2,000.00</td>
+                </tr>
+                <tr>
+                  <td className="mdl-data-table__cell--non-numeric">INV-002</td>
+                  <td className="mdl-data-table__cell--non-numeric">Red Bull Inc.</td>
+                  <td>$300.00</td>
+                </tr>
+                <tr>
+                  <td className="mdl-data-table__cell--non-numeric">INV-003</td>
+                  <td className="mdl-data-table__cell--non-numeric">Minning Inc.</td>
+                  <td>$5,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+           <div className="mdl-cell mdl-cell--8-col">
+            <h4>Invoice</h4>
+            <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+              <div className="mdl-card mdl-cell mdl-cell--12-col">
+                <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  <p>Please select an invoice on the left.</p>
+                </div>
+              </div>
+            </section>
+           </div>
          </div>
-         <div className="mdl-layout__tab-panel" id="features">
+         </div>
+         <div className="mdl-layout__tab-panel" id="archived-invoices">
            <section className="section--center mdl-grid mdl-grid--no-spacing">
              <div className="mdl-cell mdl-cell--12-col">
                <h4>Features</h4>
@@ -227,21 +170,11 @@ export default class Index extends React.Component {
            </div>
            <div className="mdl-mega-footer--bottom-section">
              <div className="mdl-logo">
-               More Information
+               Built by <a href="http://33.media.tumblr.com/tumblr_m9ql4cbGFo1qd2g3i.gif">Dev Pixel</a>.
              </div>
-             <ul className="mdl-mega-footer--link-list">
-               <li><a href="https://developers.google.com/web/starter-kit/">Web Starter Kit</a></li>
-               <li><a href="#">Help</a></li>
-               <li><a href="#">Privacy and Terms</a></li>
-             </ul>
            </div>
          </footer>
        </main>
-      <div className="footer">
-        <p>
-          Built by <a href="http://33.media.tumblr.com/tumblr_m9ql4cbGFo1qd2g3i.gif">Dev Pixel</a>.
-        </p>
-      </div>
     </div>
     );
   }
