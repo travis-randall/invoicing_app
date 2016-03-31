@@ -1,6 +1,7 @@
 "use strict";
 
 import React          from "react";
+require('../../styles/styles.scss');
 
 export default class Index extends React.Component {
 
