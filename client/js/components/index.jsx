@@ -1,7 +1,8 @@
 "use strict";
 
-import React          from "react";
-import BaseComponent  from "./base_component";
+import React              from "react";
+import BaseComponent      from "./base_component";
+import DialogAddCustomer  from "./dialogbox";
 require('../../styles/styles.scss');
 
 export default class Index extends BaseComponent {
@@ -32,7 +33,7 @@ export default class Index extends BaseComponent {
     var addButton;
 
     if (this.state.showAddButton) {
-     addButton = <div><button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add">
+     addButton = <div><button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onTouchTap={DialogAddCustomer(this.handleOpen)}>
         <i className="material-icons" role="presentation">add</i>
         <a href="#add-invoice"></a>
       </button></div>
@@ -54,7 +55,7 @@ export default class Index extends BaseComponent {
          <div className="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
            <a href="#current-invoices" className="mdl-layout__tab is-active" onClick={(e) => {this.toggleAddButton(e, true);}}>Current Invoices</a>
            <a href="#archived-invoices" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, false);}}>Archived Invoices</a>
-           <a href="#current-invoices" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, true);}}>Customers</a>
+           <a href="#customers" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, true);}}>Customers</a>
           {addButton}
          </div>
         </header>
@@ -90,7 +91,7 @@ export default class Index extends BaseComponent {
               </tbody>
             </table>
           </div>
-           <div className="mdl-cell mdl-cell--8-col">
+          <div className="mdl-cell mdl-cell--8-col">
             <h4>Invoice</h4>
             <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
               <div className="mdl-card mdl-cell mdl-cell--12-col">
@@ -99,7 +100,7 @@ export default class Index extends BaseComponent {
                 </div>
               </div>
             </section>
-           </div>
+          </div>
          </div>
          </div>
          <div className="mdl-layout__tab-panel" id="archived-invoices">
@@ -107,6 +108,49 @@ export default class Index extends BaseComponent {
           <div className="mdl-cell mdl-cell--4-col">
              <h4>Archived Invoices</h4>
              <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+              <thead>
+                <tr>
+                  <th className="mdl-data-table__cell--non-numeric">Invoice</th>
+                  <th className="mdl-data-table__cell--non-numeric">Company</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="mdl-data-table__cell--non-numeric">ACME-Corp-00051113</td>
+                  <td className="mdl-data-table__cell--non-numeric">ACME Corporation</td>
+                  <td>$2,000.00</td>
+                </tr>
+                <tr>
+                  <td className="mdl-data-table__cell--non-numeric">INV-002</td>
+                  <td className="mdl-data-table__cell--non-numeric">Red Bull Inc.</td>
+                  <td>$300.00</td>
+                </tr>
+                <tr>
+                  <td className="mdl-data-table__cell--non-numeric">INV-003</td>
+                  <td className="mdl-data-table__cell--non-numeric">Minning Inc.</td>
+                  <td>$5,000.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div className="mdl-cell mdl-cell--8-col">
+            <h4>Invoice</h4>
+            <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+              <div className="mdl-card mdl-cell mdl-cell--12-col">
+                <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                  <p>Please select an invoice on the left.</p>
+                </div>
+              </div>
+            </section>
+          </div>
+         </div>
+         </div>
+         <div className="mdl-layout__tab-panel" id="customers">
+         <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--4-col">
+            <h4>Customers</h4>
+            <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
               <thead>
                 <tr>
                   <th className="mdl-data-table__cell--non-numeric">Invoice</th>
