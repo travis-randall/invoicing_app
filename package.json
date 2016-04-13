@@ -25,6 +25,9 @@
   "author": "atomicjolt",
   "license": "MIT",
   "homepage": "https://github.com/atomicjolt/react_client_starter_app",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-google": "^0.5.0",
+    "eslint-plugin-react": "^4.3.0"
   }
 }
