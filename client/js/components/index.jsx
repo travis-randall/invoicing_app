@@ -35,10 +35,7 @@ export default class Index extends BaseComponent {
     var addButton;
 
     if (this.state.showAddButton) {
-     addButton = <div><button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" >
-        <i className="material-icons" role="presentation">add</i>
-        <a href="#add-invoice"></a>
-      </button></div>
+     addButton = <div><MySimpleDialog><DatePicker hintText="Due Date"/></MySimpleDialog></div>
    } else {
      addButton = <div></div>
    }
@@ -59,9 +56,6 @@ export default class Index extends BaseComponent {
            <a href="#archived-invoices" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, false);}}>Archived Invoices</a>
            <a href="#customers" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, true);}}>Customers</a>
           {addButton}
-          <MySimpleDialog>
-            <DatePicker hintText="Landscape Dialog" mode="landscape" />
-          </MySimpleDialog>
          </div>
         </header>
         <main className="mdl-layout__content">

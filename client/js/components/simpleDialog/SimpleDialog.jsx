@@ -3,6 +3,7 @@ import React from 'react';
 import Dialog from 'material-ui/lib/dialog';
 import FlatButton from 'material-ui/lib/flat-button';
 import RaisedButton from 'material-ui/lib/raised-button';
+require('../../../styles/styles.scss');
 
 export default class DialogExampleSimple extends React.Component {
   constructor(props) {
@@ -36,8 +37,8 @@ export default class DialogExampleSimple extends React.Component {
     ];
 
     return (
-      <div>
-        <RaisedButton label="Dialog" onTouchTap={this.handleOpen} />
+      <div className="mdl-button mdl-js-ripple-effect" id="add">
+        <RaisedButton label="Add Invoice" onTouchTap={this.handleOpen}/>
         <Dialog
           title="Dialog With Actions"
           actions={actions}
