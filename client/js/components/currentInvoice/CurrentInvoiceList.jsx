@@ -10,11 +10,19 @@ export default class CurrentInvoiceList extends BaseComponent {
     super(props,context);
     // this.state = this.getState();
   }
-  
+ 
   render() {
+    var listData = this.props.listData;
+   
     return (
       <div className="mdl-cell mdl-cell--4-col">
-        <h4>Current Invoices</h4>
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--4-col">
+              <h4>Current Invoices</h4>
+              <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>
+              <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">New Invoice</a>
+          </div>
+        </div>
         <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
           <thead>
             <tr>
@@ -24,21 +32,15 @@ export default class CurrentInvoiceList extends BaseComponent {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">ACME-Corp-00051113</td>
-              <td className="mdl-data-table__cell--non-numeric">ACME Corporation</td>
-              <td>$2,000.00</td>
-            </tr>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">INV-002</td>
-              <td className="mdl-data-table__cell--non-numeric">Red Bull Inc.</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">INV-003</td>
-              <td className="mdl-data-table__cell--non-numeric">Minning Inc.</td>
-              <td>$5,000.00</td>
-            </tr>
+          {listData.map(function(invoice,idx) {
+            return (
+              <tr key={idx}>
+                <td className="mdl-data-table__cell--non-numeric">{invoice.invoiceNumber}</td>
+                <td className="mdl-data-table__cell--non-numeric">{invoice.Company.companyName}</td>
+                <td className="mdl-data-table__cell__non-numeric">${invoice.amount}</td>
+              </tr>
+            );
+          })}
           </tbody>
         </table>
       </div>
