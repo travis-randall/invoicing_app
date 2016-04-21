@@ -2,12 +2,10 @@
 
 import React              from "react";
 import BaseComponent      from "./base_component";
-import DialogAddCustomer  from "./dialogbox";
 import MySimpleDialog     from "./simpleDialog/SimpleDialog";
-import DatePicker         from "material-ui/lib/date-picker/date-picker";
 import CurrentInvoiceView from "./currentInvoice/CurrentInvoiceView";
 import ArchivedInvoiceView from "./archivedInvoice/ArchivedInvoiceView";
-
+import CustomerPane       from "./customer/customer_pane";
 require('../../styles/styles.scss');
 
 export default class Index extends BaseComponent {
@@ -38,7 +36,7 @@ export default class Index extends BaseComponent {
     var addButton;
 
     if (this.state.showAddButton) {
-      addButton = <div><MySimpleDialog><DatePicker hintText="Due Date"/></MySimpleDialog></div>;
+      addButton = <div><MySimpleDialog></MySimpleDialog></div>;
     } else {
       addButton = <div></div>;
     }
@@ -69,47 +67,7 @@ export default class Index extends BaseComponent {
             <ArchivedInvoiceView />
           </div>
          <div className="mdl-layout__tab-panel" id="customers">
-         <div className="mdl-grid">
-          <div className="mdl-cell mdl-cell--4-col">
-            <h4>Customers</h4>
-            <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
-              <thead>
-                <tr>
-                  <th className="mdl-data-table__cell--non-numeric">Invoice</th>
-                  <th className="mdl-data-table__cell--non-numeric">Company</th>
-                  <th>Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="mdl-data-table__cell--non-numeric">ACME-Corp-00051113</td>
-                  <td className="mdl-data-table__cell--non-numeric">ACME Corporation</td>
-                  <td>$2,000.00</td>
-                </tr>
-                <tr>
-                  <td className="mdl-data-table__cell--non-numeric">INV-002</td>
-                  <td className="mdl-data-table__cell--non-numeric">Red Bull Inc.</td>
-                  <td>$300.00</td>
-                </tr>
-                <tr>
-                  <td className="mdl-data-table__cell--non-numeric">INV-003</td>
-                  <td className="mdl-data-table__cell--non-numeric">Minning Inc.</td>
-                  <td>$5,000.00</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-           <div className="mdl-cell mdl-cell--8-col">
-            <h4>Invoice</h4>
-            <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-              <div className="mdl-card mdl-cell mdl-cell--12-col">
-                <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                  <p>Please select an invoice on the left.</p>
-                </div>
-              </div>
-            </section>
-           </div>
-         </div>
+          <CustomerPane />
          </div>
          <footer className="mdl-mega-footer">
            <div className="mdl-mega-footer--middle-section">
