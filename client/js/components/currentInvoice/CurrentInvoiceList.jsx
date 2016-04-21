@@ -13,10 +13,16 @@ export default class CurrentInvoiceList extends BaseComponent {
  
   render() {
     var listData = this.props.listData;
-    
+   
     return (
       <div className="mdl-cell mdl-cell--4-col">
-        <h4>Current Invoices</h4>
+        <div className="mdl-grid">
+          <div className="mdl-cell mdl-cell--4-col">
+              <h4>Current Invoices</h4>
+              <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>
+              <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">New Invoice</a>
+          </div>
+        </div>
         <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
           <thead>
             <tr>
@@ -26,9 +32,9 @@ export default class CurrentInvoiceList extends BaseComponent {
             </tr>
           </thead>
           <tbody>
-          {listData.map(function(invoice,i) {
+          {listData.map(function(invoice,idx) {
             return (
-              <tr>
+              <tr key={idx}>
                 <td className="mdl-data-table__cell--non-numeric">{invoice.invoiceNumber}</td>
                 <td className="mdl-data-table__cell--non-numeric">{invoice.Company.companyName}</td>
                 <td className="mdl-data-table__cell__non-numeric">${invoice.amount}</td>
