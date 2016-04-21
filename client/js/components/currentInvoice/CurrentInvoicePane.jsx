@@ -12,13 +12,15 @@ export default class CurrentInvoicePane extends BaseComponent {
   }
   
   render() {
+    var invoiceDetail = this.props.listData;
+
     return (
     <div className="mdl-cell mdl-cell--8-col">
       <h4>Invoice</h4>
       <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
         <div className="mdl-card mdl-cell mdl-cell--12-col">
           <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-            <p>Please select an invoice on the left.</p>
+            Something
           </div>
         </div>
       </section>
