@@ -13,9 +13,14 @@ export default class CurrentInvoiceView extends BaseComponent {
   }
 
   render() {
+    var invoiceListData = [
+      { "invoiceNumber": "123", "Company": { "companyName": "ABC Company"}, "amount": 42.50 },
+      { "invoiceNumber": "987654321", "Company": { "companyName": "XYZ Company"}, "amount": 666.66 },
+      { "invoiceNumber": "456", "Company": { "companyName": "Nil Method"}, "amount": 92.75 }            
+    ];
     return (
       <div className="mdl-grid">
-          <CurrentInvoiceList />
+          <CurrentInvoiceList listData={invoiceListData} />
           <CurrentInvoicePane />
       </div>
     );
