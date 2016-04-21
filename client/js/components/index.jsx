@@ -58,11 +58,10 @@ export default class Index extends BaseComponent {
            <a href="#current-invoices" className="mdl-layout__tab is-active" onClick={(e) => {this.toggleAddButton(e, true);}}>Current Invoices</a>
            <a href="#archived-invoices" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, false);}}>Archived Invoices</a>
            <a href="#customers" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, true);}}>Customers</a>
-          {addButton}
          </div>
         </header>
         <main className="mdl-layout__content">
-          <div className="mdl-layout__tab-panel" id="current-invoices">
+          <div className="mdl-layout__tab-panel is-active" id="current-invoices">
             <CurrentInvoiceView />
           </div>
           <div className="mdl-layout__tab-panel" id="archived-invoices">
