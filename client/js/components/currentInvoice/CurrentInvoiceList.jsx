@@ -19,7 +19,6 @@ export default class CurrentInvoiceList extends BaseComponent {
         <div className="mdl-grid">
           <div className="mdl-cell mdl-cell--4-col">
               <h4>Current Invoices</h4>
-              <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>
               <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">New Invoice</a>
           </div>
         </div>

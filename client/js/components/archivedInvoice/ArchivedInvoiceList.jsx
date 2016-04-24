@@ -5,9 +5,15 @@ import BaseComponent from "../base_component";
 export default class ArchivedInvoiceList extends BaseComponent {
   constructor(props, context) {
     super(props,context);
+    
+    if(!this.props.listData) {
+      this.props.listData = [];
+    }
   }
   
   render() {
+    var listData = this.props.listData;
+    
     return (
       <div className="mdl-cell mdl-cell--4-col">
         <h4>Archived Invoices</h4>
@@ -20,21 +26,15 @@ export default class ArchivedInvoiceList extends BaseComponent {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">ACME-Corp-00051113</td>
-              <td className="mdl-data-table__cell--non-numeric">ACME Corporation</td>
-              <td>$2,000.00</td>
-            </tr>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">INV-002</td>
-              <td className="mdl-data-table__cell--non-numeric">Red Bull Inc.</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">INV-003</td>
-              <td className="mdl-data-table__cell--non-numeric">Minning Inc.</td>
-              <td>$5,000.00</td>
-            </tr>
+            {listData.map(function(invoice,idx) {
+              return (
+                <tr key={idx}>
+                  <td className="mdl-data-table__cell--non-numeric">{invoice.invoiceNumber}</td>
+                  <td className="mdl-data-table__cell--non-numeric">{invoice.Company.companyName}</td>
+                  <td className="mdl-data-table__cell--non-numeric">${invoice.amount}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
