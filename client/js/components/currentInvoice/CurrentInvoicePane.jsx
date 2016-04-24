@@ -12,15 +12,20 @@ export default class CurrentInvoicePane extends BaseComponent {
   }
   
   render() {
-    var invoiceDetail = this.props.listData;
-
+    var paidBtn = <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect pull-right">Set Paid</a>;
+    var invoiceDetail = this.props.listData || {};
     return (
     <div className="mdl-cell mdl-cell--8-col">
-      <h4>Invoice</h4>
+      <div className="mdl-grid">
+        <div className="mdl-cell mdl-cell--4-col">
+          <h4>Invoice</h4>
+          {paidBtn}
+         </div>
+       </div>
       <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
         <div className="mdl-card mdl-cell mdl-cell--12-col">
           <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-            Something
+            
           </div>
         </div>
       </section>
