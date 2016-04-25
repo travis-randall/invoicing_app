@@ -17,9 +17,11 @@ export default class CurrentInvoiceList extends BaseComponent {
     return (
       <div className="mdl-cell mdl-cell--4-col">
         <div className="mdl-grid">
-          <div className="mdl-cell mdl-cell--4-col">
-              <h4>Current Invoices</h4>
-              <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">New Invoice</a>
+          <div className="mdl-cell mdl-cell--6-col">
+            <h4>Current Invoices</h4>
+          </div>
+          <div className="mdl-cell mdl-cell--6-col">
+            <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">New Invoice</a>
           </div>
         </div>
         <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
