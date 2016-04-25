@@ -17,7 +17,7 @@ export default class ArchivedInvoiceList extends BaseComponent {
     return (
       <div className="mdl-cell mdl-cell--4-col">
         <h4>Archived Invoices</h4>
-        <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+        <table className="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp list-min-width">
           <thead>
             <tr>
               <th className="mdl-data-table__cell--non-numeric">Invoice</th>
