@@ -8,6 +8,16 @@ html, body {
   padding: 0;
 }
 
+.pull-right {
+  float: right;
+}
+.pull-right:after {
+  clear:both;
+}
+.list-min-width {
+  min-width: 500px;
+}
+
 /* Fix Tab Font Color */
 a.mdl-layout__tab {
   color: #fff;
