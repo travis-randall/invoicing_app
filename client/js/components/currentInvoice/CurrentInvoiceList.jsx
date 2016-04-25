@@ -10,10 +10,10 @@ export default class CurrentInvoiceList extends BaseComponent {
     super(props,context);
     // this.state = this.getState();
   }
- 
+
   render() {
     var listData = this.props.listData;
-   
+
     return (
       <div className="mdl-cell mdl-cell--4-col">
         <div className="mdl-grid">
@@ -46,6 +46,6 @@ export default class CurrentInvoiceList extends BaseComponent {
         </table>
       </div>
     );
-  } 
-  
+  }
+
 }
