@@ -13,9 +13,9 @@ export default class ArchivedInvoiceView extends BaseComponent {
 
   render() {
     var invoiceListData = [
-      { "invoiceNumber": "123", "Company": { "companyName": "ABC Company"}, "amount": 65.99 },
-      { "invoiceNumber": "987654321", "Company": { "companyName": "XYZ Company"}, "amount": 123.45},
-      { "invoiceNumber": "456", "Company": { "companyName": "Nil Method"}, "amount": 90 }
+      { "invoiceNumber": "123", "Company": { "companyName": "ABC Company"}, "amount": 65.99, "paid": true },
+      { "invoiceNumber": "987654321", "Company": { "companyName": "XYZ Company"}, "amount": 123.45, "paid": true},
+      { "invoiceNumber": "456", "Company": { "companyName": "Nil Method"}, "amount": 90, "paid": true }
     ];
     return (
       <div className="mdl-grid">
