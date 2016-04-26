@@ -28,7 +28,7 @@ export default class CurrentInvoiceList extends BaseComponent {
           <thead>
             <tr>
               <th className="mdl-data-table__cell--non-numeric">Invoice</th>
-              <th className="mdl-data-table__cell--non-numeric">Company</th>
+              <th className="mdl-data-table__cell--non-numeric">Customer</th>
               <th>Amount</th>
             </tr>
           </thead>
@@ -36,9 +36,9 @@ export default class CurrentInvoiceList extends BaseComponent {
           {listData.map(function(invoice,idx) {
             return (
               <tr key={idx}>
-                <td className="mdl-data-table__cell--non-numeric">{invoice.invoiceNumber}</td>
-                <td className="mdl-data-table__cell--non-numeric">{invoice.Company.companyName}</td>
-                <td className="mdl-data-table__cell__non-numeric">${invoice.amount}</td>
+                <td className="mdl-data-table__cell--non-numeric">{invoice.InvoiceNumber}</td>
+                <td className="mdl-data-table__cell--non-numeric">{invoice.Customer.CustomerName}</td>
+                <td className="mdl-data-table__cell__non-numeric">${invoice.Amount}</td>
               </tr>
             );
           })}

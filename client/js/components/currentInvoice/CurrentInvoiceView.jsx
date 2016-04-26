@@ -5,30 +5,50 @@ import React from "react";
 import BaseComponent from "../base_component";
 import CurrentInvoiceList from "./CurrentInvoiceList";
 import CurrentInvoicePane from "./CurrentInvoicePane";
+import _ from "lodash";
 
-export default class CurrentInvoiceView extends BaseComponent {
+var invoiceListData, invoiceData;
+
+export default class CurrentInvoiceView extends BaseComponent {  
   constructor(props,context) {
     super(props, context);
-    // this.state = this.getState();
-    
-    this.invoiceListData = [
-      { "invoiceNumber": "123", "Company": { "companyName": "ABC Company"}, "amount": 42.50, "paid":false },
-      { "invoiceNumber": "987654321", "Company": { "companyName": "XYZ Company"}, "amount": 666.66, "paid": false },
-      { "invoiceNumber": "456", "Company": { "companyName": "Nil Method"}, "amount": 92.75, "paid": false }
+    super.componentDidMount();
+    invoiceListData = [
+      { "InvoiceNumber": "123", "Customer": { "CustomerName": "ABC Customer"}, "Amount": 42.50, "Paid":false },
+      { "InvoiceNumber": "987654321", "Customer": { "CustomerName": "XYZ Customer"}, "Amount": 666.66, "Paid": false },
+      { "InvoiceNumber": "456", "Customer": { "CustomerName": "Nil Method"}, "Amount": 92.75, "Paid": false }
     ];
-    this.invoiceData = {};
+    
+    this.state = {"invoiceListData": invoiceListData, "invoiceData": {}};
+  }
+  // getState() { return {}; }
+  sendToFirebase() {
+    console.log("hi from sendToFirebase", arguments);
   }
   
-  onInvoiceChange(event) {
+  onInvoiceChange = (event) => {
     event.preventDefault();
     console.log("hello  from parent", arguments);
-  }
+    
+    let formData = event.target;
+
+    console.log(formData.InvoiceNumber.value);
+    invoiceListData.push({
+      "InvoiceNumber": formData.InvoiceNumber.value || "",
+      "InvoiceDate": formData.InvoiceDate.value || "",
+      "Customer": { "CustomerName": formData.CustomerName.value || "" },
+      "Amount": formData.Amount.value || "",
+      "Notes": formData.Notes.value || "",
+      "Paid": false
+    });
+    this.setState({"invoiceListData": invoiceListData, "invoiceData": {}}, this.sendToFirebase);
+  };
 
   render() {
     return (
       <div className="mdl-grid">
-          <CurrentInvoiceList listData={this.invoiceListData}/>
-          <CurrentInvoicePane detailData={this.invoiceData} onFABClick={this.onInvoiceChange}/>
+          <CurrentInvoiceList listData={invoiceListData}/>
+          <CurrentInvoicePane detailData={invoiceData} onFABClick={this.onInvoiceChange}/>
       </div>
     );
   }  

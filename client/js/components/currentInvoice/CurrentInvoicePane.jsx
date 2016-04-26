@@ -39,7 +39,7 @@ export default class CurrentInvoicePane extends BaseComponent {
       <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
         <div className="mdl-card mdl-cell mdl-cell--12-col">
           <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-            <form name="invoiceFrm">
+            <form name="invoiceFrm" onSubmit={this.props.onFABClick}>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input className="mdl-textfield__input" type="text" id="InvoiceNumber" 
                       name="InvoiceNumber" />
@@ -51,21 +51,23 @@ export default class CurrentInvoicePane extends BaseComponent {
                   <label className="mdl-textfield__label" htmlFor="InvoiceDate">Invoice Date...</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="Customer Name"
+                  <input className="mdl-textfield__input" type="text" id="CustomerName"
                       name="CustomerName"  />
-                  <label className="mdl-textfield__label" htmlFor="Customer Name">Customer Name...</label>
+                  <label className="mdl-textfield__label" htmlFor="CustomerName">Customer Name...</label>
                 </div>
-                <div>
-                
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input className="mdl-textfield__input" type="text" id="Amount"
+                      name="Amount" />
+                  <label className="mdl-textfield__label" htmlFor="Amount">Amount...</label>
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="Notes" 
+                    <input className="mdl-textfield__input" type="text" id="Notes" 
                        name="Notes" />
                     <label className="mdl-textfield__label" htmlFor="Notes">Notes...</label>
                   </div>
                 </div>
-                <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}} onClick={this.props.onFABClick}>
+                <button type="submit" className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}}>
                   <i className="material-icons">add</i>
                 </button>
               </form>
