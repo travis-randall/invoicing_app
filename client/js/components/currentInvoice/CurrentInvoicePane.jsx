@@ -3,66 +3,79 @@
 "use strict";
 import React from "react";
 import BaseComponent from "../base_component";
+import _ from "lodash";
 
+var detailData;
 
 export default class CurrentInvoicePane extends BaseComponent {
   constructor(props,context) {
     super(props, context);
-    // this.state = this.getState();
+
+    // this.props = props;
+    // detailData = this.props.detailData || {};
+    // if(this.props.detailData) {
+    //   console.log(detailData);
+    // }
+    this.state = {};
+  }
+  
+  shouldComponentUpdate(nextProps, nextState) {
+    // super.componentShouldUpdate();
+    console.log("hi from pane shouldComponentUpdate",arguments);
+    if(_.some(nextProps, "InvoiceNumber")) {
+      detailData = nextProps;
+      this.setState({"invoiceData": nextProps});
+      return true;
+    }
+    // return _.some(nextProps, "InvoiceNumber");
+    return false;
   }
   
   render() {
-    var paidBtn = <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>;
-    var invoiceDetail = this.props.listData || {};
     return (
     <div className="mdl-cell mdl-cell--8-col">
       <div className="mdl-grid">
-        <div class="mdl-cell mdl-cell--4-col">
+        <div className="mdl-cell mdl-cell--4-col">
           <h4>Invoice</h4>
         </div>
         <div className="mdl-cell mdl-cell--8-col">
-          {paidBtn}
+          <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>
         </div>
       </div>
       <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
         <div className="mdl-card mdl-cell mdl-cell--12-col">
           <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-            <form action="#">
+            <form name="invoiceFrm" onSubmit={this.props.onFABClick}>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="companyName" />
-                  <label className="mdl-textfield__label" for="companyName">Company Name...</label>
-                </div> &nbsp; &nbsp;
-                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="contactName" />
-                  <label className="mdl-textfield__label" for="contactName">Contact Name...</label>
-                </div> &nbsp; &nbsp;
-                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="contactNumber" />
-                  <label className="mdl-textfield__label" for="contactNumber">Contact Number...</label>
-                  <span className="mdl-textfield__error">Input is not a number!</span>
+                  <input className="mdl-textfield__input" type="text" id="InvoiceNumber" 
+                      name="InvoiceNumber" />
+                  <label className="mdl-textfield__label" htmlFor="InvoiceNumber">Invoice Number...</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="address" />
-                  <label className="mdl-textfield__label" for="address">Address...</label>
+                  <input className="mdl-textfield__input" type="text" id="InvoiceDate" 
+                      name="InvoiceDate" />
+                  <label className="mdl-textfield__label" htmlFor="InvoiceDate">Invoice Date...</label>
+                </div>
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input className="mdl-textfield__input" type="text" id="CustomerName"
+                      name="CustomerName"  />
+                  <label className="mdl-textfield__label" htmlFor="CustomerName">Customer Name...</label>
+                </div>
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input className="mdl-textfield__input" type="text" id="Amount"
+                      name="Amount" />
+                  <label className="mdl-textfield__label" htmlFor="Amount">Amount...</label>
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="city" />
-                    <label className="mdl-textfield__label" for="city">City...</label>
+                    <input className="mdl-textfield__input" type="text" id="Notes" 
+                       name="Notes" />
+                    <label className="mdl-textfield__label" htmlFor="Notes">Notes...</label>
                   </div>
                 </div>
-                <div>
-                  <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="state" />
-                    <label className="mdl-textfield__label" for="state">State...</label>
-                  </div>
-                </div>
-                <div>
-                  <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="zipcode" />
-                    <label className="mdl-textfield__label" for="zipcode">Zipcode...</label>
-                  </div>
-                </div>
+                <button type="submit" className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}}>
+                  <i className="material-icons">add</i>
+                </button>
               </form>
           </div>
         </div>
