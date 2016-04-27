@@ -1,5 +1,5 @@
 // CurrentInvoiceView.jsx
-//  Includes all components necessary for the
+//  Includes all components necessary for the 
 "use strict";
 import React from "react";
 import BaseComponent from "../base_component";
@@ -7,31 +7,35 @@ import CurrentInvoiceList from "./CurrentInvoiceList";
 import CurrentInvoicePane from "./CurrentInvoicePane";
 import _ from "lodash";
 
-var invoiceListData, invoiceData;
-
+var invoiceList, invoiceData;
 
 export default class CurrentInvoiceView extends BaseComponent {
+  
   constructor(props,context) {
     super(props, context);
-
-    invoiceListData = [
+    
+    invoiceList = [
       { "InvoiceNumber": "123", "Customer": { "CustomerName": "ABC Customer"}, "Amount": 42.50, "Paid":false },
       { "InvoiceNumber": "987654321", "Customer": { "CustomerName": "XYZ Customer"}, "Amount": 666.66, "Paid": false },
       { "InvoiceNumber": "456", "Customer": { "CustomerName": "Nil Method"}, "Amount": 92.75, "Paid": false }
     ];
-
-    this.state = {"invoiceListData": invoiceListData, "invoiceData": invoiceData};
+    
+    // this.state = {"invoiceList": invoiceList, "invoiceData": invoiceData};
+  }
+  updateState = (obj,cb) => {
+    this.setState(obj,cb);
   }
 
   sendToFirebase() {
     console.log("hi from sendToFirebase", arguments);
   }
-
-  onInvoiceChange = (event) => {
+  
+  onInvoiceChange(event) {
     event.preventDefault();
-
+    
     var formData = event.target;
-    invoiceListData.push({
+    
+    invoiceList.push({
       "InvoiceNumber": formData.InvoiceNumber.value || "",
       "InvoiceDate": formData.InvoiceDate.value || "",
       "Customer": { "CustomerName": formData.CustomerName.value || "" },
@@ -39,21 +43,38 @@ export default class CurrentInvoiceView extends BaseComponent {
       "Notes": formData.Notes.value || "",
       "Paid": false
     });
-    this.setState({"invoiceListData": invoiceListData, "invoiceData": {}}, this.sendToFirebase);
-  };
-
+    
+    this.updateState({"invoiceList": someNewObj}, this.sendToFirebase);
+  }
+  
+  // onInvoiceChange = (event) => {
+  //   event.preventDefault();
+    
+  //   var formData = event.target;
+  //   invoiceList.push({
+  //     "InvoiceNumber": formData.InvoiceNumber.value || "",
+  //     "InvoiceDate": formData.InvoiceDate.value || "",
+  //     "Customer": { "CustomerName": formData.CustomerName.value || "" },
+  //     "Amount": formData.Amount.value || "",
+  //     "Notes": formData.Notes.value || "",
+  //     "Paid": false
+  //   });
+  //   this.setState({"invoiceList": invoiceList, "invoiceData": {}}, this.sendToFirebase);
+  // };
+  
   onListRowSelect = (invoice, event) => {
     console.log(invoice);
     invoiceData = invoice;
-    this.setState({"invoiceListData": invoiceListData,"invoiceData": invoice},this.sendToFirebase);
+    this.setState({"invoiceList": invoiceList,"invoiceData": invoice},this.sendToFirebase);
   };
 
   render() {
     return (
       <div className="mdl-grid">
-          <CurrentInvoiceList listData={this.state.invoiceListData} onListRowSelect={this.onListRowSelect} />
-          <CurrentInvoicePane detailData={this.state.invoiceData} onFABClick={this.onInvoiceChange} />
+          <CurrentInvoiceList listData={invoiceList} onListRowSelect={this.onListRowSelect} />
+          <CurrentInvoicePane detailData={invoiceData} onFABClick={this.onInvoiceChange} />
       </div>
     );
-  }
-}
+  }  
+};
+CurrentInvoiceView.state = {};

@@ -8,15 +8,14 @@ import _ from "lodash";
 var detailData;
 
 export default class CurrentInvoicePane extends BaseComponent {
+  // getInitialState() {
+  //   return { };
+  // }
   constructor(props,context) {
     super(props, context);
 
-    // this.props = props;
-    // detailData = this.props.detailData || {};
-    // if(this.props.detailData) {
-    //   console.log(detailData);
-    // }
-    this.state = {};
+    // this.state = this.getInitialState();
+    
   }
   
   shouldComponentUpdate(nextProps, nextState) {
@@ -73,7 +72,8 @@ export default class CurrentInvoicePane extends BaseComponent {
                     <label className="mdl-textfield__label" htmlFor="Notes">Notes...</label>
                   </div>
                 </div>
-                <button type="submit" className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}}>
+                <button type="submit" className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" 
+                    style={{float: "right"}}>
                   <i className="material-icons">add</i>
                 </button>
               </form>
@@ -83,4 +83,5 @@ export default class CurrentInvoicePane extends BaseComponent {
     </div>
     );
   }
-}
+};
+CurrentInvoicePane.state = {};
