@@ -24,23 +24,6 @@ export default class CustomerView extends BaseComponent {
     stateInput = (e.target.innerText);
   }
 
-  clickFunction(event) {
-
-    event.preventDefault();
-
-    var customerListData = [ {
-      "customer": 12,
-      "companyName": customerForm.companyNameInput.value,
-      "contactName": customerForm.contactNameInput.value,
-      "addressInput": customerForm.addressInput.value,
-      "city": customerForm.cityInput.value,
-      "state": stateInput,
-      "zip": customerForm.zipInput.value}
-    ];
-    console.log(stateInput);
-    console.log(customerListData)
-  };
-
   render(){
     return(
       <div className="mdl-cell mdl-cell--8-col">
@@ -48,7 +31,7 @@ export default class CustomerView extends BaseComponent {
         <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
           <div className="mdl-card mdl-cell mdl-cell--12-col">
             <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-              <form name="customerForm">
+              <form name="customerForm" onSubmit={this.props.onFabClick}>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input className="mdl-textfield__input" type="text" id="companyName" name="companyNameInput" />
                   <label className="mdl-textfield__label" htmlFor="companyName">Company Name...</label>
@@ -57,7 +40,7 @@ export default class CustomerView extends BaseComponent {
                   <input className="mdl-textfield__input" type="text" id="contactName" name="contactNameInput" />
                   <label className="mdl-textfield__label" htmlFor="contactName">Contact Name...</label>
                 </div> &nbsp; &nbsp;
-                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" name="contactNumberInput">
                   <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="contactNumber" name="contactNumberInput" />
                   <label className="mdl-textfield__label" htmlFor="contactNumber">Contact Number...</label>
                   <span className="mdl-textfield__error">Input is not a number!</span>
@@ -134,7 +117,7 @@ export default class CustomerView extends BaseComponent {
                     <input className="mdl-textfield__input" type="text" id="zipcode" name="zipInput" />
                     <label className="mdl-textfield__label" htmlFor="zipcode">Zipcode...</label>
                   </div>
-                    <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}} onClick={this.clickFunction}>
+                    <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}} type="submit">
                       <i className="material-icons">add</i>
                     </button>
                 </div>

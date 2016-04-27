@@ -4,11 +4,15 @@ import React              from "react";
 import BaseComponent      from "../base_component";
 require('../../../styles/styles.scss');
 
+var listData;
+
 export default class CustomerList extends BaseComponent {
 
   constructor(props,context) {
     super(props, context);
-    // this.state = this.getState();
+
+    this.props = props;
+    listData = this.props.listData;
   }
 
   render(){
@@ -24,21 +28,15 @@ export default class CustomerList extends BaseComponent {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">ACME-Corp-00051113</td>
-              <td className="mdl-data-table__cell--non-numeric">ACME Corporation</td>
-              <td>$2,000.00</td>
-            </tr>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">INV-002</td>
-              <td className="mdl-data-table__cell--non-numeric">Red Bull Inc.</td>
-              <td>$300.00</td>
-            </tr>
-            <tr>
-              <td className="mdl-data-table__cell--non-numeric">INV-003</td>
-              <td className="mdl-data-table__cell--non-numeric">Minning Inc.</td>
-              <td>$5,000.00</td>
-            </tr>
+            {listData.map(function(customer, idx) {
+              return (
+                <tr key={idx} onClick={this.props.onListRowSelect.bind(this, customer)}>
+                  <td className="mdl-data-table__cell--non-numeric">{customer.companyName}</td>
+                  <td className="mdl-data-table__cell--non-numeric">{customer.contactName}</td>
+                  <td className="mdl-data-table__cell--non-numeric">{customer.contactNumber}</td>
+                </tr>
+              );
+            }, this)}
           </tbody>
         </table>
       </div>
