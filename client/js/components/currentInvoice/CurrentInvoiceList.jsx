@@ -3,7 +3,6 @@
 "use strict";
 import React from "react";
 import BaseComponent from "../base_component";
-import _ from "lodash";
 
 var listData;
 
