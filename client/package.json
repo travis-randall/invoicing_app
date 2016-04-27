@@ -22,7 +22,7 @@
     "flux": "^2.1.1",
     "history": "^1.13.0",
     "lodash": "^3.10.1",
-    "material-ui": "^0.15.0-alpha.2",
+    "material-ui": "^0.14.4",
     "null-loader": "^0.1.1",
     "react": "^0.14.1",
     "react-dom": "^0.14.1",
