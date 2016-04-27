@@ -53,21 +53,21 @@ export default class Index extends BaseComponent {
          <div className="mdl-layout--large-screen-only mdl-layout__header-row">
          </div>
          <div className="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
-           <a href="#current-invoices" className="mdl-layout__tab is-active" onClick={(e) => {this.toggleAddButton(e, true);}}>Current Invoices</a>
+           <a href="#customers" className="mdl-layout__tab  is-active" onClick={ (e) => {this.toggleAddButton(e, true);}}>Customers</a>
+           <a href="#current-invoices" className="mdl-layout__tab" onClick={(e) => {this.toggleAddButton(e, true);}}>Current Invoices</a>
            <a href="#archived-invoices" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, false);}}>Archived Invoices</a>
-           <a href="#customers" className="mdl-layout__tab" onClick={ (e) => {this.toggleAddButton(e, true);}}>Customers</a>
          </div>
         </header>
         <main className="mdl-layout__content">
-          <div className="mdl-layout__tab-panel is-active" id="current-invoices">
+          <div className="mdl-layout__tab-panel is-active" id="customers">
+            <CustomerPane />
+          </div>
+          <div className="mdl-layout__tab-panel" id="current-invoices">
             <CurrentInvoiceView />
           </div>
           <div className="mdl-layout__tab-panel" id="archived-invoices">
             <ArchivedInvoiceView />
           </div>
-         <div className="mdl-layout__tab-panel" id="customers">
-          <CustomerPane />
-         </div>
          <footer className="mdl-mega-footer">
            <div className="mdl-mega-footer--middle-section">
              <div className="mdl-mega-footer--drop-down-section">

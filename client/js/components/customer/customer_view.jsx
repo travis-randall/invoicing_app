@@ -13,10 +13,45 @@ export default class CustomerView extends BaseComponent {
 
   constructor(props) {
     super(props);
-    this.state = {value: 44};
+    this.state = {
+      "customer": 12,
+      "companyName": "",
+      "contactName": "",
+      "contactNumber": "",
+      "addressInput": "",
+      "cityInput": "",
+      "state": stateInput,
+      "zipInput": "",
+      "statePickerValue": 44
+    };
   }
 
   //handleChanges = (event, index, value) => this.setState({value});
+
+  handleNameChange = (event) => this.setState({companyName: event.target.value})
+  handleContactChange = (event) => this.setState({contactName: event.target.value})
+  handleNumberChange = (event) => this.setState({contactNumber: event.target.value})
+  handleAddressChange = (event) => this.setState({addressInput: event.target.value})
+  handleCityChange = (event) => this.setState({cityInput: event.target.value})
+  handleZipChange = (event) => this.setState({zipInput: event.target.value})  
+
+  submitForm = (event) => {
+    event.preventDefault();
+    this.setState({
+      "customer": 12,
+      "companyName": "",
+      "contactName": "",
+      "contactNumber": "",
+      "addressInput": "",
+      "cityInput": "",
+      "state": stateInput,
+      "zipInput": "",
+      "statePickerValue": 44
+    });
+    if(typeof this.props.onFabClick === 'function') {
+      this.props.onFabClick(event);
+    }
+  }
 
  handleChange(e) {
     //debugger;
@@ -31,33 +66,38 @@ export default class CustomerView extends BaseComponent {
         <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
           <div className="mdl-card mdl-cell mdl-cell--12-col">
             <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-              <form name="customerForm" onSubmit={this.props.onFabClick}>
+              <form name="customerForm" onSubmit={this.submitForm}>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="companyName" name="companyNameInput" />
-                  <label className="mdl-textfield__label" htmlFor="companyName">Company Name...</label>
+                  <input className="mdl-textfield__input" type="text" id="companyName" name="companyNameInput" 
+                    value={this.state.companyName} onChange={this.handleNameChange}/>
+                  <label className="mdl-textfield__label" htmlFor="companyName" >Company Name...</label>
                 </div> &nbsp; &nbsp;
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="contactName" name="contactNameInput" />
+                  <input className="mdl-textfield__input" type="text" id="contactName" name="contactNameInput" 
+                    value={this.state.contactName} onChange={this.handleContactChange}/>
                   <label className="mdl-textfield__label" htmlFor="contactName">Contact Name...</label>
                 </div> &nbsp; &nbsp;
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" name="contactNumberInput">
-                  <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="contactNumber" name="contactNumberInput" />
+                  <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="contactNumber" name="contactNumberInput" 
+                    value={this.state.contactNumber} onChange={this.handleNumberChange} />
                   <label className="mdl-textfield__label" htmlFor="contactNumber">Contact Number...</label>
                   <span className="mdl-textfield__error">Input is not a number!</span>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="address" name="addressInput" />
+                  <input className="mdl-textfield__input" type="text" id="address" name="addressInput" 
+                    value={this.state.addressInput} onChange={this.handleAddressChange} />
                   <label className="mdl-textfield__label" htmlFor="address">Address...</label>
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="city" name="cityInput" />
+                    <input className="mdl-textfield__input" type="text" id="city" name="cityInput" 
+                      value={this.state.cityInput} onChange={this.handleCityChange} />
                     <label className="mdl-textfield__label" htmlFor="city">City...</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <SelectField value={this.state.value} onChange={(e) => this.handleChange(e)}>
+                    <SelectField value={this.state.statePickerValue} onChange={(e) => this.handleChange(e)}>
                       <MenuItem value={1} primaryText="AL | Alabama"/>
                       <MenuItem value={2} primaryText="AK | Alaska"/>
                       <MenuItem value={3} primaryText="AZ | Arizona"/>
@@ -114,7 +154,8 @@ export default class CustomerView extends BaseComponent {
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="zipcode" name="zipInput" />
+                    <input className="mdl-textfield__input" type="text" id="zipcode" name="zipInput" 
+                      value={this.state.zipInput} onChange={this.handleZipChange}/>
                     <label className="mdl-textfield__label" htmlFor="zipcode">Zipcode...</label>
                   </div>
                     <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}} type="submit">

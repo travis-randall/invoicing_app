@@ -97,7 +97,7 @@ export default class CurrentInvoicePane extends BaseComponent {
     }
   }
   
-  clearForm(event) {
+  clearForm = (event) => {
     this.setState({
         InvoiceNumber:"",
         InvoiceDate:"",
