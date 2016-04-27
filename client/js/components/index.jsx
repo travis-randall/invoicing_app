@@ -79,23 +79,9 @@ export default class Index extends BaseComponent {
              </div>
              <div className="mdl-mega-footer--drop-down-section">
                <input className="mdl-mega-footer--heading-checkbox" type="checkbox" />
-               <h1 className="mdl-mega-footer--heading">Details</h1>
-               <ul className="mdl-mega-footer--link-list">
-                 <li><a href="#">Spec</a></li>
-               </ul>
-             </div>
-             <div className="mdl-mega-footer--drop-down-section">
-               <input className="mdl-mega-footer--heading-checkbox" type="checkbox" />
                <h1 className="mdl-mega-footer--heading">Technology</h1>
                <ul className="mdl-mega-footer--link-list">
                  <li><a href="#">How it works</a></li>
-               </ul>
-             </div>
-             <div className="mdl-mega-footer--drop-down-section">
-               <input className="mdl-mega-footer--heading-checkbox" type="checkbox" />
-               <h1 className="mdl-mega-footer--heading">FAQ</h1>
-               <ul className="mdl-mega-footer--link-list">
-                 <li><a href="#">Questions</a></li>
                </ul>
              </div>
            </div>
