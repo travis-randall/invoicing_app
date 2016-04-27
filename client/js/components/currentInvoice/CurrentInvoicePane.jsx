@@ -4,28 +4,17 @@
 import React from "react";
 import BaseComponent from "../base_component";
 
+var detailData;
 
 export default class CurrentInvoicePane extends BaseComponent {
   constructor(props,context) {
     super(props, context);
-    // this.state = this.getState();
+
     this.props = props;
+    detailData = this.props.detailData || {};
   }
-  getState() {
-    return {
-      
-    };
-  }
-  handleChanged(event) {
-    console.log(event);
-    // this.setState({event.target: event.target.value});
-  }
-  // invoice form elements
-  // InvoiceNumber, InvoiceDate, Customer, Array of LineItem Objects, Notes, Amount
   
   render() {
-    var paidBtn = <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>;
-    var invoiceDetail = this.props.listData || {};
     return (
     <div className="mdl-cell mdl-cell--8-col">
       <div className="mdl-grid">
@@ -33,7 +22,7 @@ export default class CurrentInvoicePane extends BaseComponent {
           <h4>Invoice</h4>
         </div>
         <div className="mdl-cell mdl-cell--8-col">
-          {paidBtn}
+          <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Set Paid</a>
         </div>
       </div>
       <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
@@ -42,12 +31,12 @@ export default class CurrentInvoicePane extends BaseComponent {
             <form name="invoiceFrm" onSubmit={this.props.onFABClick}>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input className="mdl-textfield__input" type="text" id="InvoiceNumber" 
-                      name="InvoiceNumber" />
+                      name="InvoiceNumber" value={detailData.InvoiceNumber} />
                   <label className="mdl-textfield__label" htmlFor="InvoiceNumber">Invoice Number...</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input className="mdl-textfield__input" type="text" id="InvoiceDate" 
-                      name="InvoiceDate" />
+                      name="InvoiceDate" value={detailData.InvoiceDate} />
                   <label className="mdl-textfield__label" htmlFor="InvoiceDate">Invoice Date...</label>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
@@ -57,13 +46,13 @@ export default class CurrentInvoicePane extends BaseComponent {
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input className="mdl-textfield__input" type="text" id="Amount"
-                      name="Amount" />
+                      name="Amount" value={detailData.Amount} />
                   <label className="mdl-textfield__label" htmlFor="Amount">Amount...</label>
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input className="mdl-textfield__input" type="text" id="Notes" 
-                       name="Notes" />
+                       name="Notes" value={detailData.Notes} />
                     <label className="mdl-textfield__label" htmlFor="Notes">Notes...</label>
                   </div>
                 </div>

@@ -12,7 +12,7 @@ var invoiceListData, invoiceData;
 export default class CurrentInvoiceView extends BaseComponent {  
   constructor(props,context) {
     super(props, context);
-    super.componentDidMount();
+    // super.componentDidMount();
     invoiceListData = [
       { "InvoiceNumber": "123", "Customer": { "CustomerName": "ABC Customer"}, "Amount": 42.50, "Paid":false },
       { "InvoiceNumber": "987654321", "Customer": { "CustomerName": "XYZ Customer"}, "Amount": 666.66, "Paid": false },
@@ -21,18 +21,15 @@ export default class CurrentInvoiceView extends BaseComponent {
     
     this.state = {"invoiceListData": invoiceListData, "invoiceData": {}};
   }
-  // getState() { return {}; }
+
   sendToFirebase() {
     console.log("hi from sendToFirebase", arguments);
   }
   
   onInvoiceChange = (event) => {
     event.preventDefault();
-    console.log("hello  from parent", arguments);
     
-    let formData = event.target;
-
-    console.log(formData.InvoiceNumber.value);
+    var formData = event.target;
     invoiceListData.push({
       "InvoiceNumber": formData.InvoiceNumber.value || "",
       "InvoiceDate": formData.InvoiceDate.value || "",
@@ -43,12 +40,17 @@ export default class CurrentInvoiceView extends BaseComponent {
     });
     this.setState({"invoiceListData": invoiceListData, "invoiceData": {}}, this.sendToFirebase);
   };
+  
+  onListRowSelect = (invoice, event) => {
+    console.log(invoice);
+    // this.setState({"invoiceListData": invoiceListData, "invoiceData": invoice});
+  };
 
   render() {
     return (
       <div className="mdl-grid">
-          <CurrentInvoiceList listData={invoiceListData}/>
-          <CurrentInvoicePane detailData={invoiceData} onFABClick={this.onInvoiceChange}/>
+          <CurrentInvoiceList listData={invoiceListData} onListRowSelect={this.onListRowSelect} />
+          <CurrentInvoicePane detailData={invoiceData} onFABClick={this.onInvoiceChange} />
       </div>
     );
   }  

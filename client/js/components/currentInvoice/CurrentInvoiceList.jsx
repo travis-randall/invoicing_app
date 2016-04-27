@@ -3,17 +3,19 @@
 "use strict";
 import React from "react";
 import BaseComponent from "../base_component";
+import _ from "lodash";
 
+var listData;
 
 export default class CurrentInvoiceList extends BaseComponent {
   constructor(props,context) {
     super(props,context);
-    // this.state = this.getState();
+
+    this.props = props;
+    listData = this.props.listData;
   }
  
-  render() {
-    var listData = this.props.listData;
-   
+  render() {  
     return (
       <div className="mdl-cell mdl-cell--4-col">
         <div className="mdl-grid">
@@ -35,13 +37,13 @@ export default class CurrentInvoiceList extends BaseComponent {
           <tbody>
           {listData.map(function(invoice,idx) {
             return (
-              <tr key={idx}>
+              <tr key={idx} onClick={this.props.onListRowSelect.bind(this, invoice)}>
                 <td className="mdl-data-table__cell--non-numeric">{invoice.InvoiceNumber}</td>
                 <td className="mdl-data-table__cell--non-numeric">{invoice.Customer.CustomerName}</td>
                 <td className="mdl-data-table__cell__non-numeric">${invoice.Amount}</td>
               </tr>
             );
-          })}
+          }, this)}
           </tbody>
         </table>
       </div>
