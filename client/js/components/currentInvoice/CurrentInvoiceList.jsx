@@ -22,7 +22,6 @@ export default class CurrentInvoiceList extends BaseComponent {
             <h4>Current Invoices</h4>
           </div>
           <div className="mdl-cell mdl-cell--6-col">
-            <a className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">New Invoice</a>
           </div>
         </div>
         <table className="mdl-data-table mdl-js-data-table mdl-shadow--2dp list-min-width">

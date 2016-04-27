@@ -15,9 +15,9 @@ export default class CurrentInvoiceView extends BaseComponent {
     super(props, context);
     
     invoiceList = [
-      { "InvoiceNumber": "123", "Customer": { "CustomerName": "ABC Customer"}, "Amount": 42.50, "Paid":false },
-      { "InvoiceNumber": "987654321", "Customer": { "CustomerName": "XYZ Customer"}, "Amount": 666.66, "Paid": false },
-      { "InvoiceNumber": "456", "Customer": { "CustomerName": "Nil Method"}, "Amount": 92.75, "Paid": false }
+      { "InvoiceNumber": "0001", "Customer": { "CustomerName": "Huntsman Hunting"}, "Amount": 42.50, "Paid":false },
+      { "InvoiceNumber": "0002", "Customer": { "CustomerName": "Red Bull Inc."}, "Amount": 4592.15, "Paid": false }
+      // { "InvoiceNumber": "0003", "Customer": { "CustomerName": "Nil Method"}, "Amount": 92.75, "Paid": false }
     ];
     
     // this.state = {"invoiceList": invoiceList, "invoiceData": invoiceData};
