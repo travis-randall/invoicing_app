@@ -7,6 +7,8 @@ import SelectField        from 'material-ui/lib/select-field';
 import MenuItem           from 'material-ui/lib/menus/menu-item';
 require('../../../styles/styles.scss');
 
+var stateInput;
+
 export default class CustomerView extends BaseComponent {
 
   constructor(props) {
@@ -14,7 +16,30 @@ export default class CustomerView extends BaseComponent {
     this.state = {value: 44};
   }
 
-  handleChange = (event, index, value) => this.setState({value});
+  //handleChanges = (event, index, value) => this.setState({value});
+
+ handleChange(e) {
+    //debugger;
+    //this.setState({value});
+    stateInput = (e.target.innerText);
+  }
+
+  clickFunction(event) {
+
+    event.preventDefault();
+
+    var customerListData = [ {
+      "customer": 12,
+      "companyName": customerForm.companyNameInput.value,
+      "contactName": customerForm.contactNameInput.value,
+      "addressInput": customerForm.addressInput.value,
+      "city": customerForm.cityInput.value,
+      "state": stateInput,
+      "zip": customerForm.zipInput.value}
+    ];
+    console.log(stateInput);
+    console.log(customerListData)
+  };
 
   render(){
     return(
@@ -23,33 +48,33 @@ export default class CustomerView extends BaseComponent {
         <section className="section--left mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
           <div className="mdl-card mdl-cell mdl-cell--12-col">
             <div className="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-              <form action="#">
+              <form name="customerForm">
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="companyName" />
+                  <input className="mdl-textfield__input" type="text" id="companyName" name="companyNameInput" />
                   <label className="mdl-textfield__label" htmlFor="companyName">Company Name...</label>
                 </div> &nbsp; &nbsp;
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="contactName" />
+                  <input className="mdl-textfield__input" type="text" id="contactName" name="contactNameInput" />
                   <label className="mdl-textfield__label" htmlFor="contactName">Contact Name...</label>
                 </div> &nbsp; &nbsp;
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="contactNumber" />
+                  <input className="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="contactNumber" name="contactNumberInput" />
                   <label className="mdl-textfield__label" htmlFor="contactNumber">Contact Number...</label>
                   <span className="mdl-textfield__error">Input is not a number!</span>
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                  <input className="mdl-textfield__input" type="text" id="address" />
+                  <input className="mdl-textfield__input" type="text" id="address" name="addressInput" />
                   <label className="mdl-textfield__label" htmlFor="address">Address...</label>
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="city" />
+                    <input className="mdl-textfield__input" type="text" id="city" name="cityInput" />
                     <label className="mdl-textfield__label" htmlFor="city">City...</label>
                   </div>
                 </div>
                 <div>
                   <div>
-                    <SelectField value={this.state.value} onChange={this.handleChange}>
+                    <SelectField value={this.state.value} onChange={(e) => this.handleChange(e)}>
                       <MenuItem value={1} primaryText="AL | Alabama"/>
                       <MenuItem value={2} primaryText="AK | Alaska"/>
                       <MenuItem value={3} primaryText="AZ | Arizona"/>
@@ -106,10 +131,10 @@ export default class CustomerView extends BaseComponent {
                 </div>
                 <div>
                   <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input className="mdl-textfield__input" type="text" id="zipcode" />
+                    <input className="mdl-textfield__input" type="text" id="zipcode" name="zipInput" />
                     <label className="mdl-textfield__label" htmlFor="zipcode">Zipcode...</label>
                   </div>
-                    <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}}>
+                    <button className="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored" style={{float: "right"}} onClick={this.clickFunction}>
                       <i className="material-icons">add</i>
                     </button>
                 </div>
