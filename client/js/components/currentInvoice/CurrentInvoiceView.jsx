@@ -22,6 +22,7 @@ export default class CurrentInvoiceView extends BaseComponent {
     
     // this.state = {"invoiceList": invoiceList, "invoiceData": invoiceData};
   }
+  
   updateState = (obj,cb) => {
     this.setState(obj,cb);
   }
@@ -30,7 +31,7 @@ export default class CurrentInvoiceView extends BaseComponent {
     console.log("hi from sendToFirebase", arguments);
   }
   
-  onInvoiceChange(event) {
+  onInvoiceChange = (event) => {
     event.preventDefault();
     
     var formData = event.target;
@@ -44,23 +45,8 @@ export default class CurrentInvoiceView extends BaseComponent {
       "Paid": false
     });
     
-    this.updateState({"invoiceList": someNewObj}, this.sendToFirebase);
+    this.setState({"invoiceList": invoiceList}, this.sendToFirebase);
   }
-  
-  // onInvoiceChange = (event) => {
-  //   event.preventDefault();
-    
-  //   var formData = event.target;
-  //   invoiceList.push({
-  //     "InvoiceNumber": formData.InvoiceNumber.value || "",
-  //     "InvoiceDate": formData.InvoiceDate.value || "",
-  //     "Customer": { "CustomerName": formData.CustomerName.value || "" },
-  //     "Amount": formData.Amount.value || "",
-  //     "Notes": formData.Notes.value || "",
-  //     "Paid": false
-  //   });
-  //   this.setState({"invoiceList": invoiceList, "invoiceData": {}}, this.sendToFirebase);
-  // };
   
   onListRowSelect = (invoice, event) => {
     console.log(invoice);
